@@ -16,6 +16,8 @@ const alertBanner = document.getElementById('alertBanner');
 const alertMessage = document.getElementById('alertMessage');
 const closeAlertBtn = document.getElementById('closeAlertBtn');
 const exportCsvBtn = document.getElementById('exportCsvBtn');
+const themeToggleBtn = document.getElementById('themeToggleBtn');
+const themeIcon = document.getElementById('themeIcon');
 
 // Selection Elements
 const selectionPanel = document.getElementById('selectionPanel');
@@ -37,12 +39,16 @@ let currentTweetUrl = '';
 
 // On Page Load
 document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
     fetchReleases(false);
     setupEventListeners();
 });
 
 // Event Listeners setup
 function setupEventListeners() {
+    // Theme Toggle
+    themeToggleBtn.addEventListener('click', toggleTheme);
+
     // Export CSV
     exportCsvBtn.addEventListener('click', exportToCsv);
     
@@ -490,4 +496,27 @@ function exportToCsv() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+}
+
+// Theme Management
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-theme');
+        themeIcon.className = 'fa-solid fa-moon';
+    } else {
+        document.body.classList.remove('light-theme');
+        themeIcon.className = 'fa-solid fa-sun';
+    }
+}
+
+function toggleTheme() {
+    const isLight = document.body.classList.toggle('light-theme');
+    if (isLight) {
+        themeIcon.className = 'fa-solid fa-moon';
+        localStorage.setItem('theme', 'light');
+    } else {
+        themeIcon.className = 'fa-solid fa-sun';
+        localStorage.setItem('theme', 'dark');
+    }
 }

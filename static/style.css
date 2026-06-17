@@ -572,7 +572,7 @@ body {
 
 .card-content strong {
     font-weight: 600;
-    color: #fff;
+    color: var(--text-primary);
 }
 
 /* Card footer actions */
@@ -811,10 +811,65 @@ body {
     .header-actions .btn {
         width: 100%;
     }
-    .notes-container {
-        padding: 20px;
-    }
     .notes-grid {
         grid-template-columns: 1fr;
     }
 }
+
+/* Light Theme Variables & Overrides */
+body.light-theme {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f1f5f9;
+    --bg-sidebar: #f1f5f9;
+    --bg-glass: rgba(255, 255, 255, 0.75);
+    --border-color: #cbd5e1;
+    --border-hover: rgba(2, 132, 199, 0.5);
+    
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    
+    --accent-color: #0284c7;
+    --accent-hover: #0369a1;
+    --accent-indigo: #4f46e5;
+    
+    /* Light Mode Badge Adaptations */
+    --color-general: #475569;
+}
+
+body.light-theme .btn-glass {
+    background-color: rgba(15, 23, 42, 0.03);
+    color: var(--text-primary);
+}
+
+body.light-theme .btn-glass:hover {
+    background-color: rgba(15, 23, 42, 0.08);
+}
+
+body.light-theme .search-box input {
+    background-color: rgba(15, 23, 42, 0.02);
+}
+
+body.light-theme .search-box input:focus {
+    background-color: rgba(15, 23, 42, 0.04);
+}
+
+body.light-theme .filter-chip:hover {
+    background-color: rgba(15, 23, 42, 0.04);
+}
+
+body.light-theme .stats-card {
+    background-color: rgba(15, 23, 42, 0.02);
+}
+
+body.light-theme .selection-actions-panel {
+    background: rgba(79, 70, 229, 0.05);
+    border-color: rgba(79, 70, 229, 0.2);
+}
+
+body.light-theme .tweet-composer-container {
+    background: rgba(15, 23, 42, 0.02);
+}
+
